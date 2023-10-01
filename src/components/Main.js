@@ -21,15 +21,12 @@ function Main() {
             category: "mobile",
             price: 10000,
             color: "red",
-            id: Math.floor(Math.random() * 100),
+            id: Math.floor(Math.random() * 1000),
           };
           dispatch(addToCart(product));
         }}
       >
         Add To Cart
-      </button>
-      <button onClick={() => dispatch(RemoveFromCart())}>
-        Remove From Cart
       </button>
       <button onClick={() => dispatch(EmptyCart())}>Empty Cart</button>
       <button onClick={() => dispatch(ProductList())}>Product List</button>
@@ -43,6 +40,12 @@ function Main() {
               <div>Price : {item.price} </div>
               <div>Category : {item.category} </div>
               <div>Id : {item.id} </div>
+              <button
+                id={item.id}
+                onClick={(e) => dispatch(RemoveFromCart(e.target.id))}
+              >
+                Remove From Cart
+              </button>
             </div>
           );
         })}

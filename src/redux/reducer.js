@@ -6,7 +6,7 @@ export const cartData = (state, action) => {
     initialData = [...initialData,action.data];
     return initialData;
   } else if (action.type === REMOVE_FROM_CART) {
-    initialData = initialData.slice(0, initialData.length - 1);
+    initialData = initialData.filter((product) => product.id !== parseInt(action.data));
     return initialData;
   } else if (action.type === EMPTY_CART) {
     initialData = [];

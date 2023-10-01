@@ -7,9 +7,10 @@ const addToCart=(data)=>{
         data
     }
 }
-const RemoveFromCart=()=>{
+const RemoveFromCart=(id)=>{
 return {
-    type:REMOVE_FROM_CART
+    type:REMOVE_FROM_CART,
+    data:id
 }
 }
 const EmptyCart = () => {
